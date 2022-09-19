@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UniversityApiBackend.DataAccess;
 using UniversityApiBackend.Model.DataModels;
+using UniversityApiBackend.Services;
 
 namespace UniversityApiBackend.Controllers
 {
@@ -15,10 +16,12 @@ namespace UniversityApiBackend.Controllers
     public class ChaptersController : ControllerBase
     {
         private readonly UniversityDbContext _context;
+        private readonly IChaptersService _chaptersService;
 
-        public ChaptersController(UniversityDbContext context)
+        public ChaptersController(UniversityDbContext context, IChaptersService chaptersService)
         {
             _context = context;
+            _chaptersService = chaptersService;
         }
 
         // GET: api/Chapters

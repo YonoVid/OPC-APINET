@@ -9,6 +9,9 @@ namespace UniversityApiBackend.Model.DataModels
         public String FirstName{ get; set; } = String.Empty;
         [Required]
         public String LastName { get; set; } = String.Empty;
+
+        public int Grade { get; set; } = 0;
+        public bool Certified { get; set; } = false;
         [Required]
         public DateTime DOB { get; set; }
 

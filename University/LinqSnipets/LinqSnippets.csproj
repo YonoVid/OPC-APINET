@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UniversityApiBackend\UniversityApiBackend.csproj" />
+  </ItemGroup>
+
 </Project>

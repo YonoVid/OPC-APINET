@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniversityApiBackend.DataAccess;
 
@@ -11,9 +12,10 @@ using UniversityApiBackend.DataAccess;
 namespace UniversityApiBackend.Migrations
 {
     [DbContext(typeof(UniversityDbContext))]
-    partial class UniversityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220918051053_Create Table Student, Course, Category and Chapters")]
+    partial class CreateTableStudentCourseCategoryandChapters
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -250,15 +252,6 @@ namespace UniversityApiBackend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ChaptersId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CourseId")
-                        .HasColumnType("int");
-
                     b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -294,9 +287,6 @@ namespace UniversityApiBackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -304,20 +294,7 @@ namespace UniversityApiBackend.Migrations
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ChaptersId");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("StudentId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Users");
                 });
@@ -363,55 +340,10 @@ namespace UniversityApiBackend.Migrations
                     b.Navigation("Course");
                 });
 
-            modelBuilder.Entity("UniversityApiBackend.Model.DataModels.User", b =>
-                {
-                    b.HasOne("UniversityApiBackend.Model.DataModels.Category", null)
-                        .WithMany("Users")
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("UniversityApiBackend.Model.DataModels.Chapters", null)
-                        .WithMany("Users")
-                        .HasForeignKey("ChaptersId");
-
-                    b.HasOne("UniversityApiBackend.Model.DataModels.Course", null)
-                        .WithMany("Users")
-                        .HasForeignKey("CourseId");
-
-                    b.HasOne("UniversityApiBackend.Model.DataModels.Student", null)
-                        .WithMany("Users")
-                        .HasForeignKey("StudentId");
-
-                    b.HasOne("UniversityApiBackend.Model.DataModels.User", null)
-                        .WithMany("Users")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("UniversityApiBackend.Model.DataModels.Category", b =>
-                {
-                    b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("UniversityApiBackend.Model.DataModels.Chapters", b =>
-                {
-                    b.Navigation("Users");
-                });
-
             modelBuilder.Entity("UniversityApiBackend.Model.DataModels.Course", b =>
                 {
                     b.Navigation("Chapters")
                         .IsRequired();
-
-                    b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("UniversityApiBackend.Model.DataModels.Student", b =>
-                {
-                    b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("UniversityApiBackend.Model.DataModels.User", b =>
-                {
-                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

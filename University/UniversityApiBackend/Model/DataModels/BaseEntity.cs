@@ -7,6 +7,7 @@ namespace UniversityApiBackend.Model.DataModels
         [Required]
         [Key]
         public int Id { get; set; }
+        //public int UserId { get; set; }
         public String CreatedBy { get; set; } = String.Empty;
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public String UpdatedBy { get; set; } = String.Empty;
@@ -14,6 +15,8 @@ namespace UniversityApiBackend.Model.DataModels
         public String DeletedBy { get; set; } = String.Empty;
         public DateTime? DeletedDate { get; set; }
         public bool IsDeleted { get; set; } = false;
+
+        public ICollection<User> Users { get; set; } = new List<User>();
 
     }
 }

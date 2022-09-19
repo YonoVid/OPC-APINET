@@ -257,3 +257,7 @@ D:\Programming\BootCampC#\University\UniversityApiBackend\obj\Debug\net6.0\refin
 D:\Programming\BootCampC#\University\UniversityApiBackend\obj\Debug\net6.0\UniversityApiBackend.pdb
 D:\Programming\BootCampC#\University\UniversityApiBackend\obj\Debug\net6.0\UniversityApiBackend.genruntimeconfig.cache
 D:\Programming\BootCampC#\University\UniversityApiBackend\obj\Debug\net6.0\ref\UniversityApiBackend.dll
+D:\Programming\BootCampC#\University\UniversityApiBackend\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\Programming\BootCampC#\University\UniversityApiBackend\bin\Debug\net6.0\dotnet-aspnet-codegenerator-design.dll
+D:\Programming\BootCampC#\University\UniversityApiBackend\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\Programming\BootCampC#\University\UniversityApiBackend\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UniversityApiBackend.DataAccess;
 using UniversityApiBackend.Helpers;
 using UniversityApiBackend.Model.DataModels;
 
@@ -11,30 +12,14 @@ namespace UniversityApiBackend.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
+        private readonly UniversityDbContext _context;
         private readonly JwtSettings _jwtSettings;
 
-        public AccountController (JwtSettings jwtSettings)
+        public AccountController (UniversityDbContext context, JwtSettings jwtSettings)
         {
+            _context = context;
             _jwtSettings = jwtSettings;
         }
-
-        private IEnumerable<User> Logins = new List<User> ()
-        {
-            new User()
-            {
-                Id = 1,
-                Email = "admin@correo.cl",
-                Name = "Admin",
-                Password = "Admin"
-            },
-            new User()
-            {
-                Id = 2,
-                Email = "pepe@correo.cl",
-                Name = "User1",
-                Password = "pepe"
-            }
-        };
 
         [HttpPost]
         public IActionResult GetToken(UserLogins userLogin)
@@ -42,20 +27,26 @@ namespace UniversityApiBackend.Controllers
             try
             {
                 var Token = new UserTokens();
-                var Valid = Login.Any(user => user.Name.Equals(userLogin.UserName, StringComparison.OrdinalIgnoreCase));
+                var Valid = _context.Users.Any(user => user.Name.Equals(userLogin.UserName, StringComparison.OrdinalIgnoreCase));
 
                 if (Valid)
                 {
-                    var user = Login.FirstOrDefault(user => user.Name.Equals(userLogin.UserName, StringComparison.OrdinalIgnoreCase));
-                    Token = JwtHelpers.GenTokenKey(new UserTokens()
+                    var user = _context.Users
+                        .FirstOrDefault(user => user.Name.Equals(userLogin.UserName, StringComparison.OrdinalIgnoreCase) &&
+                                                user.Password.Equals(userLogin.Password));
+                    if (user != null)
                     {
-                        UserName = user.Name,
-                        EmailId = user.Email,
-                        Id = user.Id,
-                        GuidId = Guid.NewGuid()
-                    }, _jwtSettings);
+                        Token = JwtHelpers.GenTokenKey(new UserTokens()
+                        {
+                            UserName = user.Name,
+                            EmailId = user.Email,
+                            Id = user.Id,
+                            GuidId = Guid.NewGuid()
+                        }, _jwtSettings);
+                    }
+                    else return BadRequest("Wrong password");
                 }
-                else return BadRequest("Wrong password");
+                else return BadRequest("User not found");
 
                 return Ok(Token);
             }
@@ -69,7 +60,7 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public IActionResult GetUserList()
         {
-            return Ok(Logins);
+            return Ok(_context.Users);
         }
     }
 }

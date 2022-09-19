@@ -261,3 +261,5 @@ D:\Programming\BootCampC#\University\UniversityApiBackend\bin\Debug\net6.0\Micro
 D:\Programming\BootCampC#\University\UniversityApiBackend\bin\Debug\net6.0\dotnet-aspnet-codegenerator-design.dll
 D:\Programming\BootCampC#\University\UniversityApiBackend\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
 D:\Programming\BootCampC#\University\UniversityApiBackend\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\Programming\BootCampC#\University\UniversityApiBackend\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Programming\BootCampC#\University\UniversityApiBackend\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

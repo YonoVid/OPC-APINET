@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -48,6 +50,7 @@ namespace UniversityApiBackend.Controllers
         // PUT: api/Chapters/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> PutChapters(int id, Chapters chapters)
         {
             if (id != chapters.Id)
@@ -79,6 +82,7 @@ namespace UniversityApiBackend.Controllers
         // POST: api/Chapters
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<ActionResult<Chapters>> PostChapters(Chapters chapters)
         {
             _context.Chapters.Add(chapters);
@@ -89,6 +93,7 @@ namespace UniversityApiBackend.Controllers
 
         // DELETE: api/Chapters/5
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> DeleteChapters(int id)
         {
             var chapters = await _context.Chapters.FindAsync(id);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E7EE/CPELECiag2XhvKYcl1o7iK0TAmRxobo+iCnOHJRHuY5e+i3WUOkJsAbkEW4NcIZnuUxu7PJmsa8qb7B8A==",
+  "dgSpecHash": "gu00jTR5u/tJgN1ruCwpWxOc/dj0TVi+xkGqoFA4rHnrm4L9AF9ORkREH3OV4AdhsKcWCczXAKD0yoW40cbMCQ==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\BootCampC#\\University\\LinqSnipets\\LinqSnippets.csproj",
+  "projectFilePath": "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\LinqSnipets\\LinqSnippets.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\david\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

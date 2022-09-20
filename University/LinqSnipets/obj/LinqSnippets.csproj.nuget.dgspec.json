@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programming\\BootCampC#\\University\\LinqSnipets\\LinqSnippets.csproj": {}
+    "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\LinqSnipets\\LinqSnippets.csproj": {}
   },
   "projects": {
-    "D:\\Programming\\BootCampC#\\University\\LinqSnipets\\LinqSnippets.csproj": {
+    "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\LinqSnipets\\LinqSnippets.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\BootCampC#\\University\\LinqSnipets\\LinqSnippets.csproj",
+        "projectUniqueName": "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\LinqSnipets\\LinqSnippets.csproj",
         "projectName": "LinqSnippets",
-        "projectPath": "D:\\Programming\\BootCampC#\\University\\LinqSnipets\\LinqSnippets.csproj",
+        "projectPath": "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\LinqSnipets\\LinqSnippets.csproj",
         "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\BootCampC#\\University\\LinqSnipets\\obj\\",
+        "outputPath": "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\LinqSnipets\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Programming\\BootCampC#\\University\\UniversityApiBackend\\UniversityApiBackend.csproj": {
-                "projectPath": "D:\\Programming\\BootCampC#\\University\\UniversityApiBackend\\UniversityApiBackend.csproj"
+              "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\UniversityApiBackend\\UniversityApiBackend.csproj": {
+                "projectPath": "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\UniversityApiBackend\\UniversityApiBackend.csproj"
               }
             }
           }
@@ -63,14 +63,14 @@
         }
       }
     },
-    "D:\\Programming\\BootCampC#\\University\\UniversityApiBackend\\UniversityApiBackend.csproj": {
+    "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\UniversityApiBackend\\UniversityApiBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\BootCampC#\\University\\UniversityApiBackend\\UniversityApiBackend.csproj",
+        "projectUniqueName": "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\UniversityApiBackend\\UniversityApiBackend.csproj",
         "projectName": "UniversityApiBackend",
-        "projectPath": "D:\\Programming\\BootCampC#\\University\\UniversityApiBackend\\UniversityApiBackend.csproj",
+        "projectPath": "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\UniversityApiBackend\\UniversityApiBackend.csproj",
         "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\BootCampC#\\University\\UniversityApiBackend\\obj\\",
+        "outputPath": "D:\\Programming\\BootCampC#\\csharpGit\\OPC-APINET\\University\\UniversityApiBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",

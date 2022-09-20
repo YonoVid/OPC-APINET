@@ -19,6 +19,10 @@ builder.Services.AddDbContext<UniversityDbContext>(options => options.UseSqlServ
 builder.Services.AddJwtTokenService(builder.Configuration);
 
 // Add services to the container.
+//A.- Localization
+//Set folder of localization
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
 
 builder.Services.AddControllers();
 
@@ -85,6 +89,17 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+
+//B.- Supported cultures
+var supportedCultures = builder.Configuration.GetSection("AllowedLenguages")?.GetChildren()?.Select(x => x.Value)?.ToArray();
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supportedCultures[0])
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+//3.- Add localization to app
+app.UseRequestLocalization(localizationOptions);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

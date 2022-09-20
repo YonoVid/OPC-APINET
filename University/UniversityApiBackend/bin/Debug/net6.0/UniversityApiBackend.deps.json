@@ -19,6 +19,20 @@
         },
         "runtime": {
           "UniversityApiBackend.dll": {}
+        },
+        "resources": {
+          "de-DE/UniversityApiBackend.resources.dll": {
+            "locale": "de-DE"
+          },
+          "en-US/UniversityApiBackend.resources.dll": {
+            "locale": "en-US"
+          },
+          "es-ES/UniversityApiBackend.resources.dll": {
+            "locale": "es-ES"
+          },
+          "fr-FR/UniversityApiBackend.resources.dll": {
+            "locale": "fr-FR"
+          }
         }
       },
       "Humanizer.Core/2.8.26": {

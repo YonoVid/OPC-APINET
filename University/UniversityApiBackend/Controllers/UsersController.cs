@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using UniversityApiBackend.DataAccess;
 using UniversityApiBackend.Model.DataModels;
 using UniversityApiBackend.Services;
@@ -19,11 +20,15 @@ namespace UniversityApiBackend.Controllers
     {
         private readonly UniversityDbContext _context;
         private readonly IUsersService _usersService;
+        //private readonly IStringLocalizer<User> _userLocalizer;
 
-        public UsersController(UniversityDbContext context, IUsersService usersService)
+        public UsersController(UniversityDbContext context,
+                                IUsersService usersService)
+                                //IStringLocalizer<User> userLocalizer)
         {
             _context = context;
             _usersService = usersService;
+            //_userLocalizer = userLocalizer;
         }
 
         // GET: api/Users

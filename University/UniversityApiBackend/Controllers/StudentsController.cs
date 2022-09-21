@@ -39,6 +39,29 @@ namespace UniversityApiBackend.Controllers
             return await _context.Students.ToListAsync();
         }
 
+        // GET: api/Students/GetStudentsWithCourses
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<ActionResult<IEnumerable<Student>>> GetStudentsWithCourses()
+        {
+            _logger.LogInformation($"{nameof(StudentsController)} - {nameof(GetStudentCourses)}:: RUNNING FUNCTION CALL");
+
+
+            return Ok(await _studentServices.AsyncGetStudentsWithCourses(_context.Students));
+
+        }
+
+        // GET: api/Students/GetStudentsWithoutCourses
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<ActionResult<IEnumerable<Student>>> GetStudentsWithoutCourses()
+        {
+            _logger.LogInformation($"{nameof(StudentsController)} - {nameof(GetStudentCourses)}:: RUNNING FUNCTION CALL");
+
+            return Ok(await _studentServices.AsyncGetStudentsWithNoCourses(_context.Students));
+
+        }
+
         // GET: api/Students/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Student>> GetStudent(int id)
@@ -53,6 +76,16 @@ namespace UniversityApiBackend.Controllers
             }
 
             return student;
+        }
+
+        // GET: api/Students/GetStudentCourses/5
+        [HttpGet]
+        [Route("[action]/{id}")]
+        public async Task<ActionResult<IEnumerable<Student>>> GetStudentCourses(int id)
+        {
+            _logger.LogInformation($"{nameof(StudentsController)} - {nameof(GetStudentCourses)}:: RUNNING FUNCTION CALL");
+
+            return Ok(await _studentServices.AsyncGetAllCoursesOfStudent(_context.Students, id));
         }
 
         // PUT: api/Students/5

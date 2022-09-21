@@ -1,0 +1,15 @@
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\bin\Debug\net6.0\ExampleAsyncFlow.exe
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\bin\Debug\net6.0\ExampleAsyncFlow.deps.json
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\bin\Debug\net6.0\ExampleAsyncFlow.runtimeconfig.json
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\bin\Debug\net6.0\ExampleAsyncFlow.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\bin\Debug\net6.0\ExampleAsyncFlow.pdb
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\obj\Debug\net6.0\ExampleAsyncFlow.csproj.AssemblyReference.cache
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\obj\Debug\net6.0\ExampleAsyncFlow.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\obj\Debug\net6.0\ExampleAsyncFlow.AssemblyInfoInputs.cache
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\obj\Debug\net6.0\ExampleAsyncFlow.AssemblyInfo.cs
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\obj\Debug\net6.0\ExampleAsyncFlow.csproj.CoreCompileInputs.cache
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\obj\Debug\net6.0\ExampleAsyncFlow.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\obj\Debug\net6.0\refint\ExampleAsyncFlow.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\obj\Debug\net6.0\ExampleAsyncFlow.pdb
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\obj\Debug\net6.0\ExampleAsyncFlow.genruntimeconfig.cache
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\ExampleAsyncFlow\ExampleAsyncFlow\obj\Debug\net6.0\ref\ExampleAsyncFlow.dll

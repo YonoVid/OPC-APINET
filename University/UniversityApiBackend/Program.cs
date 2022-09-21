@@ -4,8 +4,20 @@ using Microsoft.OpenApi.Models;
 using UniversityApiBackend;
 using UniversityApiBackend.DataAccess;
 using UniversityApiBackend.Services;
+//10.- Using serilog to log events
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//11.- Configure serilog
+builder.Host.UseSerilog((hostBuilderCtx, loggerConf) =>
+{
+    loggerConf
+        .WriteTo.Console()
+        .WriteTo.Debug()
+        .ReadFrom.Configuration(hostBuilderCtx.Configuration);
+
+});
 
 //2.- Connection with SQL Express
 const string CONNECTIONNAME = "UniversityDb";
@@ -107,6 +119,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//12.- Tell app to use Serilog
+app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 

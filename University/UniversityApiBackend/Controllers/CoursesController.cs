@@ -19,17 +19,23 @@ namespace UniversityApiBackend.Controllers
     {
         private readonly UniversityDbContext _context;
         private readonly ICoursesService _courseServices;
+        private readonly ILogger<CoursesController> _logger;
 
-        public CoursesController(UniversityDbContext context, ICoursesService coursesService)
+        public CoursesController(UniversityDbContext context,
+                                    ICoursesService coursesService,
+                                    ILogger<CoursesController> logger)
         {
             _context = context;
             _courseServices = coursesService;
+            _logger = logger;
         }
 
         // GET: api/Courses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Course>>> GetCourses()
         {
+            _logger.LogInformation($"{nameof(CoursesController)} - {nameof(GetCourses)}:: RUNNING FUNCTION CALL");
+
             return await _context.Courses.ToListAsync();
         }
 
@@ -37,6 +43,8 @@ namespace UniversityApiBackend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Course>> GetCourse(int id)
         {
+            _logger.LogInformation($"{nameof(CoursesController)} - {nameof(GetCourse)}:: RUNNING FUNCTION CALL");
+
             var course = await _context.Courses.FindAsync(id);
 
             if (course == null)
@@ -53,6 +61,8 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> PutCourse(int id, Course course)
         {
+            _logger.LogInformation($"{nameof(CoursesController)} - {nameof(PutCourse)}:: RUNNING FUNCTION CALL");
+
             if (id != course.Id)
             {
                 return BadRequest();
@@ -72,6 +82,8 @@ namespace UniversityApiBackend.Controllers
                 }
                 else
                 {
+                    _logger.LogWarning($"{nameof(CoursesController)} - {nameof(PutCourse)}:: UNEXPECTED BEHAVIOUR IN FUNCTION CALL");
+
                     throw;
                 }
             }

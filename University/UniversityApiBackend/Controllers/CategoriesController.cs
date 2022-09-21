@@ -19,17 +19,23 @@ namespace UniversityApiBackend.Controllers
     {
         private readonly UniversityDbContext _context;
         private readonly ICategoriesService _categoriesService;
+        private readonly ILogger<CategoriesController> _logger;
 
-        public CategoriesController(UniversityDbContext context, ICategoriesService categoriesService)
+        public CategoriesController(UniversityDbContext context,
+                                    ICategoriesService categoriesService,
+                                    ILogger<CategoriesController> logger)
         {
             _context = context;
             _categoriesService = categoriesService;
+            _logger = logger;
         }
 
         // GET: api/Categories
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
         {
+            _logger.LogInformation($"{nameof(CategoriesController)} - {nameof(GetCategories)}:: RUNNING FUNCTION CALL");
+
             return await _context.Categories.ToListAsync();
         }
 
@@ -37,6 +43,8 @@ namespace UniversityApiBackend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Category>> GetCategory(int id)
         {
+            _logger.LogInformation($"{nameof(CategoriesController)} - {nameof(GetCategory)}:: RUNNING FUNCTION CALL");
+
             var category = await _context.Categories.FindAsync(id);
 
             if (category == null)
@@ -53,6 +61,8 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
+            _logger.LogInformation($"{nameof(CategoriesController)} - {nameof(PutCategory)}:: RUNNING FUNCTION CALL");
+
             if (id != category.Id)
             {
                 return BadRequest();
@@ -72,6 +82,7 @@ namespace UniversityApiBackend.Controllers
                 }
                 else
                 {
+                    _logger.LogWarning($"{nameof(CategoriesController)} - {nameof(PutCategory)}:: UNEXPECTED BEHAVIOUR IN FUNCTION CALL");
                     throw;
                 }
             }
@@ -85,6 +96,8 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
+            _logger.LogInformation($"{nameof(CategoriesController)} - {nameof(PostCategory)}:: RUNNING FUNCTION CALL");
+
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
@@ -96,6 +109,8 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
+            _logger.LogInformation($"{nameof(CategoriesController)} - {nameof(DeleteCategory)}:: RUNNING FUNCTION CALL");
+
             var category = await _context.Categories.FindAsync(id);
             if (category == null)
             {
@@ -110,6 +125,8 @@ namespace UniversityApiBackend.Controllers
 
         private bool CategoryExists(int id)
         {
+            _logger.LogInformation($"{nameof(CategoriesController)} - {nameof(CategoryExists)}:: RUNNING FUNCTION CALL");
+
             return _context.Categories.Any(e => e.Id == id);
         }
     }

@@ -541,3 +541,17 @@ D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\o
 D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\obj\Debug\net6.0\UniversityApiBackend.Resources.Model.DataModels.User.en-US.resources
 D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\obj\Debug\net6.0\UniversityApiBackend.Resources.Model.DataModels.User.es-ES.resources
 D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\obj\Debug\net6.0\UniversityApiBackend.Resources.Model.DataModels.User.fr-FR.resources
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Microsoft.Azure.Services.AppAuthentication.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Serilog.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Serilog.AspNetCore.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Serilog.Sinks.File.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Serilog.Sinks.MSSqlServer.dll
+D:\Programming\BootCampC#\csharpGit\OPC-APINET\University\UniversityApiBackend\bin\Debug\net6.0\Serilog.Sinks.PeriodicBatching.dll

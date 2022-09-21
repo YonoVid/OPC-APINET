@@ -19,17 +19,23 @@ namespace UniversityApiBackend.Controllers
     {
         private readonly UniversityDbContext _context;
         private readonly IStudentsService _studentServices;
+        private readonly ILogger<StudentsController> _logger;
 
-        public StudentsController(UniversityDbContext context, IStudentsService studentsService)
+        public StudentsController(UniversityDbContext context,
+                                    IStudentsService studentsService,
+                                    ILogger<StudentsController> logger)
         {
             _context = context;
             _studentServices = studentsService;
+            _logger = logger;
         }
 
         // GET: api/Students
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Student>>> GetStudents()
         {
+            _logger.LogInformation($"{nameof(StudentsController)} - {nameof(GetStudents)}:: RUNNING FUNCTION CALL");
+
             return await _context.Students.ToListAsync();
         }
 
@@ -37,6 +43,8 @@ namespace UniversityApiBackend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Student>> GetStudent(int id)
         {
+            _logger.LogInformation($"{nameof(StudentsController)} - {nameof(GetStudent)}:: RUNNING FUNCTION CALL");
+
             var student = await _context.Students.FindAsync(id);
 
             if (student == null)
@@ -53,6 +61,8 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> PutStudent(int id, Student student)
         {
+            _logger.LogInformation($"{nameof(StudentsController)} - {nameof(PutStudent)}:: RUNNING FUNCTION CALL");
+
             if (id != student.Id)
             {
                 return BadRequest();
@@ -72,6 +82,8 @@ namespace UniversityApiBackend.Controllers
                 }
                 else
                 {
+                    _logger.LogWarning($"{nameof(StudentsController)} - {nameof(GetStudent)}:: UNEXPECTED BEHAVIOUR IN FUNCTION CALL");
+
                     throw;
                 }
             }
@@ -85,6 +97,8 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<ActionResult<Student>> PostStudent(Student student)
         {
+            _logger.LogInformation($"{nameof(StudentsController)} - {nameof(PostStudent)}:: RUNNING FUNCTION CALL");
+
             _context.Students.Add(student);
             await _context.SaveChangesAsync();
 
@@ -96,6 +110,8 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> DeleteStudent(int id)
         {
+            _logger.LogInformation($"{nameof(StudentsController)} - {nameof(DeleteStudent)}:: RUNNING FUNCTION CALL");
+
             var student = await _context.Students.FindAsync(id);
             if (student == null)
             {
@@ -110,6 +126,8 @@ namespace UniversityApiBackend.Controllers
 
         private bool StudentExists(int id)
         {
+            _logger.LogInformation($"{nameof(StudentsController)} - {nameof(StudentExists)}:: RUNNING FUNCTION CALL");
+
             return _context.Students.Any(e => e.Id == id);
         }
     }

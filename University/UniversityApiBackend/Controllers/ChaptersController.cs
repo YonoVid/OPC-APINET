@@ -19,17 +19,23 @@ namespace UniversityApiBackend.Controllers
     {
         private readonly UniversityDbContext _context;
         private readonly IChaptersService _chaptersService;
+        private readonly ILogger<ChaptersController> _logger;
 
-        public ChaptersController(UniversityDbContext context, IChaptersService chaptersService)
+        public ChaptersController(UniversityDbContext context,
+                                    IChaptersService chaptersService,
+                                    ILogger<ChaptersController> logger)
         {
             _context = context;
             _chaptersService = chaptersService;
+            _logger = logger;
         }
 
         // GET: api/Chapters
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Chapters>>> GetChapters()
         {
+            _logger.LogInformation($"{nameof(ChaptersController)} - {nameof(GetChapters)}:: RUNNING FUNCTION CALL");
+
             return await _context.Chapters.ToListAsync();
         }
 
@@ -37,6 +43,8 @@ namespace UniversityApiBackend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Chapters>> GetChapters(int id)
         {
+            _logger.LogInformation($"{nameof(ChaptersController)} - {nameof(GetChapters)}:: RUNNING FUNCTION CALL");
+
             var chapters = await _context.Chapters.FindAsync(id);
 
             if (chapters == null)
@@ -53,6 +61,8 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> PutChapters(int id, Chapters chapters)
         {
+            _logger.LogInformation($"{nameof(ChaptersController)} - {nameof(PutChapters)}:: RUNNING FUNCTION CALL");
+
             if (id != chapters.Id)
             {
                 return BadRequest();
@@ -72,6 +82,8 @@ namespace UniversityApiBackend.Controllers
                 }
                 else
                 {
+
+                    _logger.LogWarning($"{nameof(ChaptersController)} - {nameof(PutChapters)}:: UNEXPECTED BEHAVIOUR IN FUNCTION CALL");
                     throw;
                 }
             }
@@ -85,6 +97,8 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<ActionResult<Chapters>> PostChapters(Chapters chapters)
         {
+            _logger.LogInformation($"{nameof(ChaptersController)} - {nameof(PostChapters)}:: RUNNING FUNCTION CALL");
+
             _context.Chapters.Add(chapters);
             await _context.SaveChangesAsync();
 
@@ -96,6 +110,8 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> DeleteChapters(int id)
         {
+            _logger.LogInformation($"{nameof(ChaptersController)} - {nameof(DeleteChapters)}:: RUNNING FUNCTION CALL");
+
             var chapters = await _context.Chapters.FindAsync(id);
             if (chapters == null)
             {
@@ -110,6 +126,8 @@ namespace UniversityApiBackend.Controllers
 
         private bool ChaptersExists(int id)
         {
+            _logger.LogInformation($"{nameof(ChaptersController)} - {nameof(ChaptersExists)}:: RUNNING FUNCTION CALL");
+
             return _context.Chapters.Any(e => e.Id == id);
         }
     }

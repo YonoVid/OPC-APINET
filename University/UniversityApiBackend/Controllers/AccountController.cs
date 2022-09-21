@@ -16,19 +16,24 @@ namespace UniversityApiBackend.Controllers
         private readonly UniversityDbContext _context;
         private readonly JwtSettings _jwtSettings;
         private readonly IStringLocalizer<User> _userLocalizer;
+        private readonly ILogger<AccountController> _logger;
 
         public AccountController (UniversityDbContext context,
                                     JwtSettings jwtSettings,
-                                    IStringLocalizer<User> userLocalizer)
+                                    IStringLocalizer<User> userLocalizer,
+                                    ILogger<AccountController> logger)
         {
             _context = context;
             _jwtSettings = jwtSettings;
             _userLocalizer = userLocalizer;
+            _logger = logger;
         }
 
         [HttpPost]
         public IActionResult GetToken(UserLogins userLogin)
         {
+            _logger.LogInformation($"{nameof(AccountController)} - {nameof(GetToken)}:: RUNNING FUNCTION CALL");
+
             try
             {
                 var Token = new UserTokens();
@@ -60,6 +65,9 @@ namespace UniversityApiBackend.Controllers
             }
             catch(Exception ex)
             {
+                _logger.LogWarning($"{nameof(AccountController)} - {nameof(GetToken)}" +
+                    $"- ERROR:: {nameof(ex.GetType)} WITH USER {userLogin.UserName}");
+
                 throw new Exception("GetToken error", ex);
             }
         }
@@ -68,6 +76,8 @@ namespace UniversityApiBackend.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public IActionResult GetUserList()
         {
+            _logger.LogInformation($"{nameof(AccountController)} - {nameof(GetUserList)}:: RUNNING FUNCTION CALL");
+
             return Ok(_context.Users);
         }
     }
